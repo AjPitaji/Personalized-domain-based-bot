@@ -40,7 +40,6 @@ importlib-resources
 InstructorEmbedding
 Jinja2
 langchain
-langsmith
 Lazify
 MarkupSafe
 marshmallow
