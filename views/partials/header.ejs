@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="hamburger"
+      id="ham"
+      onclick="toggleSidebar()"
+      style="position: relative; top: 32px"
+    >
+      ☰
+    </div>
+    <div class="sidebar" id="sidebar">
+      <a href="auth/signout" style="text-decoration: none">
+        <h3 style="margin: 50px">logout</h3>
+      </a>
+      <a href="/about" style="text-decoration: none">
+        <h3 style="margin: 50px">about</h3>
+      </a>
+
+      <a href="/update" style="text-decoration: none">
+        <h3 style="margin: 50px">update</h3>
+      </a>
+
+      <a href="/" style="text-decoration: none">
+        <h3 style="margin: 50px">home</h3>
+      </a>
+    </div>
+    <style>
+      .hamburger {
+        font-size: 30px;
+        padding: 5px;
+        cursor: pointer;
+        z-index: 99;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        color: #fff;
+      }
+
+      .sidebar {
+        width: 0;
+        height: 100%;
+        background-color: rgb(35, 35, 46);
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        z-index: 2;
+      }
+
+      a{
+          color: white !important; 
+          text-transform: uppercase;  
+      }
+    </style>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+          sidebar.style.width = "250px";
+        } else {
+          sidebar.style.width = "0px";
+        }
+      }
+    </script>
+  </body>
+</html>

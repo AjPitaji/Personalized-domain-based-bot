@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+
+  <body>
+    <%- include("partials/header.ejs" );%>
+    <div class="chatbot-container">
+      <div id="header">
+        <h1 style="position: relative; left: 10px">Minebot</h1>
+        <h5>lets mine together</h5>
+      </div>
+      <div id="chatbot">
+        <div id="conversation">
+          <%for(let chat of chats){%>
+          <div class="chatbot-message">
+            <p class="chatbot-text"><%=chat.query%></p>
+          </div>
+             <div class="chatbot-message">
+            <p class="chatbot-text" style="background-color: aquamarine;"><%=chat.answer%></p>
+          </div>
+          <%}%>
+          <div id="loading-message" style="display: none;">
+            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/ulhdumaq.json"
+    trigger="loop"
+    colors="primary:#16c72e,secondary:#08a88a"
+    style="width:250px;height:250px">
+</lord-icon>
+          </div>
+        </div>
+        <form id="input-form" method="post" action="/">
+          <message-container>
+            <input
+              id="input-field"
+              type="text"
+              name="query"
+              placeholder="Type your message here"
+            />
+            <button id="submit-button" style="width: 50px" type="submit">
+              <i
+                class="fa fa-paper-plane"
+                style="font-size: 30px; color: lightblue"
+              ></i>
+            </button>
+          </message-container>
+        </form>
+      </div>
+    </div>
+
+    <script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+            sidebar.style.width = "250px";
+        } else {
+            sidebar.style.width = "0px";
+        }
+    }
+
+    const loadingMessage = document.getElementById("loading-message");
+    const inputForm = document.getElementById("input-form");
+    const inputField = document.getElementById("input-field"); // Add this line
+
+    inputForm.addEventListener("submit", function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        // Clear the input field
+       
+
+        
+        // Display the loading message
+        loadingMessage.style.display = "block";
+
+        // Simulate a delay to mimic bot response (you can replace this with actual bot response logic)
+        setTimeout(function () {
+            // Hide the loading message
+            loadingMessage.style.display = "none";
+           
+            // Perform the actual form submission (you can send the query to your server here)
+            inputForm.submit();
+        }, 5000); // Change 2000 to the desired delay in milliseconds (simulated bot response time)
+    });
+</script>
+
+
+  </body>
+</html>
